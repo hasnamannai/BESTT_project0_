@@ -128,6 +128,8 @@ const RootQuery = new GraphQLObjectType({
     }
   }
 });
+//mutations
+
 
 module.exports = new GraphQLSchema({
   query: RootQuery
