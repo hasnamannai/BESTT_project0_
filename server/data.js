@@ -1,4 +1,4 @@
-const users =[
+/*const users =[
     {
         id:'1',
         name:'hasna',
@@ -36,3 +36,4 @@ const entreprises =[
 ]
 
 module.exports={users,entreprises}
+*/
