@@ -135,12 +135,13 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
+    //create user
     createUser: {
       type: UserType,
       args: {
         name: { type: GraphQLNonNull(GraphQLString) },
         email: { type: GraphQLNonNull(GraphQLString) },
-        passeword: { type: GraphQLNonNull(GraphQLString) },
+        passeword: { type: GraphQLNonNull(GraphQLString)},
       },
       resolve(parentValue, args) {
         const { name, email, passeword } = args;
@@ -222,17 +223,7 @@ const mutation = new GraphQLObjectType({
           phone: args.phone,
           userId: args.userId,
         });
-        /*
-      resolve(parentValue,args){
-        const entrepise=new entreprise ({
-          name:args.name_entreprise,
-          email: args.email ,
-          adresse: args.adresse,
-          phone: args.phone,
-          userId: args.userId,
-        });*/
-          
-          
+
         return entrepise.save();
 
       },

@@ -1,6 +1,6 @@
 import {ApolloProvider, ApolloClient, InMemoryCache} from'@apollo/client';
 import Users from './components/Users';
-import Entreprises from './components/Entreprises';
+//import Entreprises from './components/Entreprises';
 
 
 
@@ -14,8 +14,7 @@ function App() {
     <>
       <ApolloProvider client= {client}>
       <div className="container">
-        <Users/>
-        <Entreprises/>
+        <Users/> 
       </div>
       </ApolloProvider>
     </>
