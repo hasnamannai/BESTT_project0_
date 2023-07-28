@@ -191,6 +191,7 @@ const mutation = new GraphQLObjectType({
         }
       },
     },
+    */
     // delete user
     deleteUser :{
       type: UserType,
@@ -202,7 +203,7 @@ const mutation = new GraphQLObjectType({
       }
 
     },
-    */
+    
     //update user
     updateUser:{
       type: UserType,
