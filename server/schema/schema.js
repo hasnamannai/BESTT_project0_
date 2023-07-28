@@ -136,6 +136,34 @@ const mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     //create user
+    createUser :{
+      type: UserType,
+      args:{
+        name: {type: GraphQLNonNull(GraphQLString)},
+        email :{type: GraphQLNonNull(GraphQLString)},
+        password: {type: GraphQLNonNull(GraphQLString)},        
+      },
+      async resolve(parentValue, args) {
+        const existingEmail = await user.findOne({ email: args.email });
+        if (existingEmail) {
+          throw new Error("Email existe déjà.");
+        }
+    
+
+        const newUser = new user({
+          name: args.name,
+          email: args.email,
+          passeword: args.password,
+        });
+
+        return newUser.save();
+
+      },
+    },
+
+
+
+/*
     createUser: {
       type: UserType,
       args: {
@@ -174,6 +202,7 @@ const mutation = new GraphQLObjectType({
       }
 
     },
+    */
     //update user
     updateUser:{
       type: UserType,
@@ -224,7 +253,7 @@ const mutation = new GraphQLObjectType({
           userId: args.userId,
         });
 
-        return entrepise.save();
+        return newEntreprise.save();
 
       },
     },
